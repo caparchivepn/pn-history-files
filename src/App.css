@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+body{
+    font-family: Satoshi Variable, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+    color: rgb(91 89 86 / 1);
+}
+a:after {
+    border: 0 solid #e5e7eb;
+    box-sizing: border-box;
+}
+
+.file-icon {
+	fill: #009984;
+	flex-shrink: 0;
+	fill: transparent;
+	stroke: #009984;
+	stroke-width: 2px;
+  width: 22px;
+}
+
+.file-search {
+  flex-shrink: 0;
+	fill: transparent;
+  stroke: #009984;
+	stroke-width: 2px;
+  width: 22px;
+}
+
+a {
+  color:#009984 !important;
+  text-decoration: none;
+}
+
+li{
+  border-bottom-color: rgb(203 201 199 / var(--tw-border-opacity, 1));
+  border-top-color: rgb(203 201 199 / var(--tw-border-opacity, 1));
+}
+
+div.input:has(>input:not([type=checkbox]),>select), input:not(div>input:not([type=checkbox])), select:not(div>select) {
+    border-radius: .25rem;
+    border-width: 1px;
+    border-color: rgb(156 163 175 / 1);
+    background-color: rgb(255 255 255 / 1);
+    padding: .75rem 1rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+.container{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
