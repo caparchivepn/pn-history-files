@@ -9,11 +9,13 @@ const LANGUAGE = {
     search: 'Rechercher',
     nothingFound: 'Aucun document ne correspond à votre recherche',
     showMore: 'Afficher plus',
+    key: 'FR',
   },
   DE: {
     search: 'Suchen',
     nothingFound: 'Kein Dokument entspricht Ihrer Suche',
     showMore: 'Mehr anzeigen',
+    key: 'DE',
   },
 }
 interface GoogleDriveFile {
@@ -50,10 +52,16 @@ function App() {
     fetchFiles(searchTerm, nextPageToken)
   }
 
+
+  const language = window.location.href.includes('/de')
+    ? LANGUAGE.DE
+    : LANGUAGE.FR
+
+    
   const fetchFiles = async (query: string, pageToken = null, reset = false) => {
     try {
       const response = await fetch(
-        `/api/fetch-files?query=${encodeURIComponent(query)}${
+        `/api/fetch-files?query=${encodeURIComponent(query)}&language=${language.key}${
           pageToken ? `&pageToken=${pageToken}` : ''
         }`,
       )
@@ -71,10 +79,6 @@ function App() {
       console.error('Error fetching files:', error)
     }
   }
-
-  const language = window.location.href.includes('/de')
-    ? LANGUAGE.DE
-    : LANGUAGE.FR
 
   return (
     <div>
