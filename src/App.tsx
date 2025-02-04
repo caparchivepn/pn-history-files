@@ -41,12 +41,19 @@ function App() {
     }
   }, [searchTerm])
 
-    const fetchFiles = async (query: string, pageToken = null, reset = false) => {
+  const getLanguage = () => {
+    return languageTmp = window.location.href.includes('/de')
+        ? LANGUAGE.DE
+        : LANGUAGE.FR
+  }
+
+  const fetchFiles = async (query: string, pageToken = null, reset = false) => {
     try {
+      const languageTmp = getLanguage();
       const response = await fetch(
-        `/api/fetch-files?query=${encodeURIComponent(query)}&language=${language.key}${
-          pageToken ? `&pageToken=${pageToken}` : ''
-        }`,
+        `/api/fetch-files?query=${encodeURIComponent(query)}&language=${
+          languageTmp.key
+        }${pageToken ? `&pageToken=${pageToken}` : ''}`,
       )
       if (!response.ok) {
         throw new Error('Failed to fetch files')
@@ -74,10 +81,7 @@ function App() {
     fetchFiles(searchTerm, nextPageToken)
   }
 
-
-  const language = window.location.href.includes('/de')
-    ? LANGUAGE.DE
-    : LANGUAGE.FR
+  const language = getLanguage()
 
   return (
     <div>
@@ -99,7 +103,7 @@ function App() {
         {files?.length > 0 ? (
           <div>
             <ul className="result [&>li>a]:py-4 [&>li]:px-2 [&>li>a]:text-primary-500 [&>li>a.router-link-exact-active]:text-black [&>li]:border-y-stone-100 [&_a]:font-bold [&>li]:border-y-[1px]">
-              {files.map((file: GoogleDriveFile, index:number) => (
+              {files.map((file: GoogleDriveFile, index: number) => (
                 <li className="mt-[-1px]" key={index}>
                   <a
                     className="flex justify-between gap-4"
