@@ -42,6 +42,7 @@ function App() {
   }, [searchTerm])
 
   const getLanguage = () => {
+    console.log("dfsdf",window.top.location.href,  window.top.location.href.includes('/de'))
     return languageTmp = window.top.location.href.includes('/de')
         ? LANGUAGE.DE
         : LANGUAGE.FR
