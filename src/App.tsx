@@ -41,24 +41,7 @@ function App() {
     }
   }, [searchTerm])
 
-  useEffect(() => {
-    setReload(true)
-    setNextPageToken(null)
-    fetchFiles(debouncedTerm, null, true)
-  }, [debouncedTerm])
-
-  const handleLoadMore = () => {
-    setReload(true)
-    fetchFiles(searchTerm, nextPageToken)
-  }
-
-
-  const language = window.location.href.includes('/de')
-    ? LANGUAGE.DE
-    : LANGUAGE.FR
-
-    
-  const fetchFiles = async (query: string, pageToken = null, reset = false) => {
+    const fetchFiles = async (query: string, pageToken = null, reset = false) => {
     try {
       const response = await fetch(
         `/api/fetch-files?query=${encodeURIComponent(query)}&language=${language.key}${
@@ -79,6 +62,22 @@ function App() {
       console.error('Error fetching files:', error)
     }
   }
+
+  useEffect(() => {
+    setReload(true)
+    setNextPageToken(null)
+    fetchFiles(debouncedTerm, null, true)
+  }, [debouncedTerm])
+
+  const handleLoadMore = () => {
+    setReload(true)
+    fetchFiles(searchTerm, nextPageToken)
+  }
+
+
+  const language = window.location.href.includes('/de')
+    ? LANGUAGE.DE
+    : LANGUAGE.FR
 
   return (
     <div>
