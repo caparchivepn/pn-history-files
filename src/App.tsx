@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedTerm(searchTerm)
-    }, 350)
+    }, 500)
 
     return () => {
       clearTimeout(handler)
