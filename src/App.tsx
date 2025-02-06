@@ -104,7 +104,7 @@ function App() {
           </div>
           {!initLoad && reload && <IconLoading />}
         </div>
-        <div className="w-full md:w-1/2 max-w-sm ml-auto p-4 pt-1 pb-1 mt-1 border border-yellow-300 bg-yellow-50 text-yellow-800 rounded-md flex items-center space-x-3 mx-auto md:mx-r-0">
+        <div className="w-full md:w-1/2 md:max-w-sm ml-auto p-4 pt-1 pb-1 mt-1 border border-yellow-300 bg-yellow-50 text-yellow-800 rounded-md flex items-center space-x-3 mx-auto md:mx-r-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-10 w-10 text-yellow-500 mt-1"
