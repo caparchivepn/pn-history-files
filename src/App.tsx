@@ -97,6 +97,7 @@ function App() {
           <IconSearch />
         </div>
         {!initLoad && reload && <IconLoading />}
+        <div class="max-w-sm ml-auto p-4 border border-yellow-300 bg-yellow-50 text-yellow-800 rounded-md flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-yellow-500 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1 4h.01M12 9h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><div class="text-sm"><strong>Info importante</strong> écrivez le mot complêt pour le rechercher dans les documents, sinon celui-ci ne sera pas trouvé.</div></div>
       </div>
 
       <div>
