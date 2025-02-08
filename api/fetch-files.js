@@ -9,7 +9,7 @@ export default async function handler(req, res) {
   try {
     const folderId = language == 'FR' ? folderIdFr : folderIdDe
     const response = await fetch(
-      `https://www.googleapis.com/drive/v3/files?pageSize=25&q='${folderId}' in parents ${
+      `https://www.googleapis.com/drive/v3/files?pageSize=15&q='${folderId}' in parents ${
         query ? `and (fullText contains '${query}')` : '&orderBy=name desc'
       }&fields=files(id, name),nextPageToken${
         pageToken ? `&pageToken=${pageToken}` : ''
