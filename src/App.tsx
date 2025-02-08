@@ -64,9 +64,9 @@ function App() {
         throw new Error('Failed to fetch files')
       }
       const data = await response.json()
-      setFiles((prevFiles: GoogleDriveFile[]) =>
-        reset ? data.files : [...prevFiles, ...data.files],
-      )
+      setFiles((prevFiles: GoogleDriveFile[]) => {
+        return data.files  ? reset ? data.files : [...prevFiles, ...data.files]: []
+      })
       setNextPageToken(data.nextPageToken || null)
       setInitLoad(false)
       setReload(false)
@@ -120,7 +120,8 @@ function App() {
             ></path>
           </svg>
           <div className="text-[10px]">
-            <strong>{language.importantInfo}</strong>: {language.importantInfoDesc}
+            <strong>{language.importantInfo}</strong>:{' '}
+            {language.importantInfoDesc}
           </div>
         </div>
       </div>
